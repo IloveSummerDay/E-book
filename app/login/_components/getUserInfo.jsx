@@ -4,17 +4,23 @@ import { useEffect, useState } from 'react'
 function UesrInfo(params) {
   const [data, setData] = useState([])
   useEffect(() => {
-    fetch('/api/getUserInfo')
-      .then(res => res.json())
-      .then(res => setData(res.data))
+    fetch('/api/user')
+      .then(res => {
+        console.log('res ', res)
+        return res.json()
+      })
+      .then(res => {
+        console.log(res.data)
+        setData(res.data)
+      })
   }, [])
-  console.log(data)
+
   return (
     <div>
+      用户如下：
       {data.map((item, index) => (
         <div key={index}>
-          {' '}
-          {item.account} --- {item.password}
+          账号：{item.account} --- 密码：{item.password}
         </div>
       ))}
     </div>
