@@ -1,12 +1,10 @@
 // import UserInfo from './_components/getUserInfo'
-import LoginInput from './_components/AntdInput'
+import AntdLoginInput from './_components/AntdLoginInput'
 
 export default async function Login() {
   return (
-    <div>
-      Login Page.js
-      <LoginInput />
-      {/* <UserInfo /> */}
-    </div>
+    <>
+      <AntdLoginInput />
+    </>
   )
 }

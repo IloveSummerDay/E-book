@@ -1,6 +1,6 @@
 export const metadata = {
-  title: 'e-book login',
-  description: '请登录'
+  title: 'e-book home',
+  description: '尽情使用E-Book吧'
 }
 
 /**
@@ -8,7 +8,6 @@ export const metadata = {
  * @param {ReactNode} children
  * @param {Object} params
  */
-export default function LoginPageLayout({ children, params }) {
-  const list = ['账号', '密码']
+export default function PageLayout({ children, params }) {
   return <div className="h-full">{children}</div>
 }

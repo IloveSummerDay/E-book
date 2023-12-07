@@ -1,0 +1,36 @@
+.book {
+  width: 500px;
+  height: 300px;
+  position: relative;
+  perspective: 1000px;
+  display: flex;
+  justify-content: center;
+  background-color: antiquewhite;
+}
+
+.page {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  backface-visibility: hidden;
+  transition: transform 0.5s ease;
+}
+
+.front-page {
+  right: 0;
+  transform: rotateY(0);
+}
+
+.back-page {
+  left: 0;
+}
+
+/* ani - css */
+.flipped .front-page {
+  transform: rotateY(-180deg);
+  z-index: 20;
+}
+
+.flipped .back-page {
+  transform: rotateY(-180deg);
+}

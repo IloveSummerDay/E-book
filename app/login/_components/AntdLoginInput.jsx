@@ -2,14 +2,14 @@
 import { Button, Card, Form, Input } from 'antd'
 import { useRouter } from 'next/navigation'
 
-function LoginInput() {
+function AntdLoginInput() {
   const router = useRouter()
 
   return (
-    <div className="login-form pt-20">
+    <div className="login-form h-full flex justify-center items-center">
       <Card
-        title="E-Book网站登录"
-        className="mx-auto w-4/5"
+        title="E-Book - 网站登录"
+        className="mx-auto w-1/5 h-auto"
       >
         <Form
           labelCol={{ span: 3 }}
@@ -19,7 +19,7 @@ function LoginInput() {
               body: JSON.stringify(v)
             }).then(res => res.json())
             console.log(res)
-            router.push('/')
+            router.push('/home')
           }}
         >
           <Form.Item
@@ -34,7 +34,7 @@ function LoginInput() {
           >
             <Input placeholder="请输入密码"></Input>
           </Form.Item>
-          <Form.Item>
+          <Form.Item className="w-40 mx-auto ">
             <Button
               block
               type="primary"
@@ -43,10 +43,19 @@ function LoginInput() {
               登录
             </Button>
           </Form.Item>
+          <Form.Item className="w-40 mx-auto ">
+            <Button
+              block
+              type="default"
+              htmlType="submit"
+            >
+              注册
+            </Button>
+          </Form.Item>
         </Form>
       </Card>
     </div>
   )
 }
 
-export default LoginInput
+export default AntdLoginInput

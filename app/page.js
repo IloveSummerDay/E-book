@@ -10,6 +10,7 @@ export default function Home() {
       <Button
         type="primary"
         size="large"
+        className="flex items-center justify-center"
         style={{ width: '10%', height: '5%', fontSize: '1rem' }}
         onClick={v => {
           router.push('/login')
