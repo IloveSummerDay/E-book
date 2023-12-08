@@ -1,5 +1,5 @@
 import TopNav from '../../_components_global/TopNav'
-import Reader from './_components/reader'
+import Reader from './_components/reader/reader'
 function reader() {
   return (
     <>

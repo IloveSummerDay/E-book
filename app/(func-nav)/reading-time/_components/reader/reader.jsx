@@ -1,18 +1,13 @@
 'use client'
 import { useState } from 'react'
-import '../style.css'
+import './style.module.css'
 
 function reader() {
-  const [turn, setTurn] = useState(false)
-  const handleTurn = () => {
-    console.log('【ani】')
-    setTurn(turn => !turn)
-  }
-
   const [isFlipped, setIsFlipped] = useState(false)
   const flipPage = () => {
     setIsFlipped(!isFlipped)
   }
+
   return (
     <>
       <div className={`book ${isFlipped ? 'flipped' : ''} mx-auto`}>
