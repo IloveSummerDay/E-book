@@ -1,5 +1,5 @@
 export const metadata = {
-  title: 'e-book login',
+  title: 'E-Book Login',
   description: '请登录'
 }
 
@@ -10,5 +10,9 @@ export const metadata = {
  */
 export default function LoginPageLayout({ children, params }) {
   const list = ['账号', '密码']
-  return <div className="h-full">{children}</div>
+  return (
+    <>
+      <div className="h-full bg-mainHoverColor flex items-center flex-col justify-evenly">{children}</div>
+    </>
+  )
 }

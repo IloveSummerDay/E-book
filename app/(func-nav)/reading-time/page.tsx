@@ -1,10 +1,16 @@
 import TopNav from '../../_components_global/TopNav'
-import Reader from './_components/reader/reader'
+import ReadChoices from './_components/ReadChoices'
+import Reader from './_components/reader/Reader'
 function reader() {
   return (
     <>
       <TopNav navIndex={1} />
-      <Reader />
+      <div className=" h-[90%] flex">
+        <div className=" w-[15%] h-full">
+          <ReadChoices />
+        </div>
+        <Reader />
+      </div>
     </>
   )
 }

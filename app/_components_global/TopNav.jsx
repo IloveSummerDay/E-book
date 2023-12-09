@@ -1,17 +1,23 @@
 'use client'
+import { UploadOutlined } from '@ant-design/icons'
+import Cookies from 'js-cookie'
 import { useRouter } from 'next/navigation'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
+import Button from './Button'
 
 const navs = ['首页', '阅读', '书库', '我的']
 const navsRouter = ['home', 'reading-time', 'books-store', 'user-center']
 
-function comp({ navIndex }) {
+function TopNav({ navIndex }) {
   const router = useRouter()
+  const [avaterUrl, setAvater] = useState('')
   //
   useEffect(() => {
     console.log('【我在顶部导航栏 渲染提交后执行了一次】')
+    const avaterPath = Cookies.get('user-avater')
+    setAvater(avaterPath)
     return () => {
-      console.log('【我是一个清理函数】')
+      console.log('【我是一个清理函数】', avaterPath)
     }
   }, [])
   //
@@ -31,7 +37,7 @@ function comp({ navIndex }) {
                 // style={props.navIndex}
                 className={`w-auto h-60 flex justify-center 
               items-center pl-[30px] pr-[30px] text-red-600 font-bold 
-              cursor-pointer rounded-md 
+              cursor-pointer rounded-md
               ${
                 navIndex == index
                   ? 'bg-white text-mainColor'
@@ -49,21 +55,29 @@ function comp({ navIndex }) {
         <div className=" w-[20%] h-full absolute right-[0] flex items-center justify-evenly">
           <a className=" w-[50px] h-[50px] rounded-[25px] cursor-pointer overflow-hidden block">
             <img
-              src="/none.png"
+              src={avaterUrl}
               alt=""
               className="w-[50px] h-[50px]"
+              onClick={() => {
+                alert('此处应该跳转到用户资料路由（/user-center/_id?...）')
+              }}
             />
           </a>
-          <div
-            className=" w-[40%] h-full flex items-center justify-evenly cursor-pointer text-mainColor font-bold
-           hover:text-white"
-          >
-            登录 | 注册
-          </div>
+          <Button
+            type="primary"
+            shape="round"
+            className=" font-bold "
+            icon={<UploadOutlined className="" />}
+            size="large"
+            content="上传图书"
+            onClick={() => {
+              alert('上传图书文件')
+            }}
+          />
         </div>
       </div>
     </>
   )
 }
 
-export default comp
+export default TopNav
