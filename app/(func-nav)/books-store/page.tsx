@@ -1,20 +1,29 @@
 import TopNav from '../../_components_global/TopNav'
 import BooksClassificationItem from './_components/BooksClassificationItem'
-function name() {
+import LibrarySelectionList from './_components/LibrarySelectionList'
+import LoadBooksList from './_components/LoadBooksList'
+function page() {
   return (
     <>
+      <LoadBooksList />
       <TopNav navIndex={2} />
       <div
-        className=" w-[100%] flex h-[90%]  mt-[30px]
-         flex-wrap p-[10px] justify-evenly overflow-y-scroll
+        className=" w-[100%] flex h-[90%]
+        overflow-hidden
+          bg-orange
       "
       >
-        {[0, 1, 2, 3].map((el, index) => (
-          <BooksClassificationItem key={index} />
-        ))}
+        <div className=" h-full w-[15%]">
+          <BooksClassificationItem />
+        </div>
+        <div className=" bg-purple w-[85%] h-[100%] justify-center items-center overflow-hidden">
+          {[0].map((el, index) => (
+            <LibrarySelectionList key={index} />
+          ))}
+        </div>
       </div>
     </>
   )
 }
 
-export default name
+export default page

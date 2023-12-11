@@ -4,6 +4,7 @@ import Cookies from 'js-cookie'
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import Button from './Button'
+import UploadModal from './UploadModal'
 
 const navs = ['首页', '阅读', '书库', '我的']
 const navsRouter = ['home', 'reading-time', 'books-store', 'user-center']
@@ -11,6 +12,7 @@ const navsRouter = ['home', 'reading-time', 'books-store', 'user-center']
 function TopNav({ navIndex }) {
   const router = useRouter()
   const [avaterUrl, setAvater] = useState('')
+  const [openUpoladBook, setOpenUpoladBook] = useState(false)
   //
   useEffect(() => {
     console.log('【我在顶部导航栏 渲染提交后执行了一次】')
@@ -71,11 +73,12 @@ function TopNav({ navIndex }) {
             size="large"
             content="上传图书"
             onClick={() => {
-              alert('上传图书文件')
+              setOpenUpoladBook(!openUpoladBook)
             }}
           />
         </div>
       </div>
+      <UploadModal open={openUpoladBook} />
     </>
   )
 }

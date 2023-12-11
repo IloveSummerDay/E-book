@@ -1,12 +1,13 @@
 import { randomUUID } from 'crypto'
 import dayjs from 'dayjs'
 import fs from 'fs'
+import { useSearchParams } from 'next/navigation'
 import { NextResponse } from 'next/server'
 import path from 'path'
 
 export const GET = async (req, { params }) => {
   const { searchParams } = new URL(req.url)
-  console.log(Object.fromEntries(searchParams))
+  console.log(searchParams, Object.fromEntries(searchParams), useSearchParams())
 
   return NextResponse.json({
     success: true,

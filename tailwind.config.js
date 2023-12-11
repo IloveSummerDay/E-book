@@ -15,7 +15,8 @@ module.exports = {
       purple: '#8A2BE2',
       green: '#2E8B57',
       black: '#000',
-      white: '#fff'
+      white: '#fff',
+      gray: 'rgba(0, 0, 0, 0.06)'
     },
     spacing: {
       80: '80%',
