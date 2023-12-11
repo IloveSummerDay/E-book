@@ -1,11 +1,9 @@
 import TopNav from '../../_components_global/TopNav'
 import BooksClassificationItem from './_components/BooksClassificationItem'
 import LibrarySelectionList from './_components/LibrarySelectionList'
-import LoadBooksList from './_components/LoadBooksList'
-function page() {
+async function page() {
   return (
     <>
-      <LoadBooksList />
       <TopNav navIndex={2} />
       <div
         className=" w-[100%] flex h-[90%]

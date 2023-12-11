@@ -1,44 +1,29 @@
 'use client'
-import { useRecoilValue } from 'recoil'
-import { bookTypeState } from '../stores'
-const books = [
-  {
-    title: 'nodejs实战',
-    poster: 'https://',
-    intro: '我是一条介绍我是一条介绍我是一条介绍'
-  },
-  {
-    title: '222',
-    poster: 'https://',
-    intro: 'intro222'
-  },
-  {
-    title: '333',
-    poster: 'https://',
-    intro: 'intro333'
-  },
-  {
-    title: '444',
-    poster: 'https://',
-    intro: 'intro444'
-  },
-  {
-    title: '555',
-    poster: 'https://',
-    intro: 'intro555'
-  },
-  {
-    title: '666',
-    poster: 'https://',
-    intro: 'intro666'
-  }
-]
+import { useEffect } from 'react'
+import { useRecoilState, useRecoilValue } from 'recoil'
+import { bookTypeState, booksStoreListState } from '../stores'
 const LibrarySelectionList = ({}) => {
   //
+  const [booksStoreList, setBbooksStoreList] = useRecoilState(booksStoreListState)
   const bookType = useRecoilValue(bookTypeState)
-  const onChange = (pagination, filters, sorter, extra) => {
-    console.log('params', pagination, filters, sorter, extra)
+  useEffect(() => {
+    console.log('【需要更新书库列表了】')
+    getBooksStoreList()
+    return () => {
+      console.log('【我是一个清理函数 --- 】')
+    }
+  }, [bookType])
+  const getBooksStoreList = async () => {
+    const res = await fetch(`/api/getBooksStoreList?bookType=${bookType}`, {
+      method: 'GET'
+    })
+      .then(res => res.json())
+      .then(res => {
+        console.log('【设置新得到的书籍们】', res)
+        setBbooksStoreList(res.data)
+      })
   }
+
   return (
     <>
       <div
@@ -47,7 +32,7 @@ const LibrarySelectionList = ({}) => {
         overflow-y-scroll  bg-orange mb-[100px]"
       >
         <div className="flex flex-wrap w-full justify-evenly">
-          {books.map((book, index) => {
+          {booksStoreList.map((book, index) => {
             return (
               <div
                 key={index}
@@ -69,9 +54,7 @@ const LibrarySelectionList = ({}) => {
                   }}
                 >
                   <span className=" font-bold text-mainColor">{book.title}</span>
-                  <p className=" overflow-hidden whitespace-nowrap text-ellipsis ">
-                    {book.intro} + {bookType}
-                  </p>
+                  <p className=" overflow-hidden whitespace-nowrap text-ellipsis ">{book.intro}</p>
                 </div>
               </div>
             )
