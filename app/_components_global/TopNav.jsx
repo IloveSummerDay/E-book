@@ -1,6 +1,6 @@
 'use client'
 import { UploadOutlined } from '@ant-design/icons'
-import Cookies from 'js-cookie'
+import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import Button from './Button'
@@ -8,18 +8,27 @@ import UploadModal from './UploadModal'
 
 const navs = ['首页', '阅读', '书库', '我的']
 const navsRouter = ['home', 'reading-time', 'books-store', 'user-center']
+let avatarTempPath
 
 function TopNav({ navIndex }) {
+  const { data: session, status } = useSession()
   const router = useRouter()
-  const [avaterUrl, setAvater] = useState('')
+  const [avatarUrl, setAvatar] = useState('')
   const [openUpoladBook, setOpenUpoladBook] = useState(false)
   //
   useEffect(() => {
     console.log('【我在顶部导航栏 渲染提交后执行了一次】')
-    const avaterPath = Cookies.get('user-avater')
-    setAvater(avaterPath)
+    if (session) {
+      console.log('session', session)
+    }
+    try {
+      avatarTempPath = session.user.image ? session.user.image : '/none.png'
+    } catch (e) {
+      avatarTempPath = '/none.png'
+    }
+    setAvatar(avatarTempPath)
     return () => {
-      console.log('【我是一个清理函数】', avaterPath)
+      console.log('【我是一个清理函数】', avatarTempPath)
     }
   }, [])
   //
@@ -57,7 +66,7 @@ function TopNav({ navIndex }) {
         <div className=" w-[20%] h-full absolute right-[0] flex items-center justify-evenly">
           <a className=" w-[50px] h-[50px] rounded-[25px] cursor-pointer overflow-hidden block">
             <img
-              src={avaterUrl}
+              src={avatarUrl}
               alt=""
               className="w-[50px] h-[50px]"
               onClick={() => {

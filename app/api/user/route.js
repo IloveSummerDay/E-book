@@ -1,5 +1,5 @@
-import { prisma } from '@/db/prisma'
 import { NextResponse } from 'next/server'
+import { prisma } from '/db/prisma'
 
 export const GET = async (req, { params }) => {
   const data = await prisma.user.findMany({
