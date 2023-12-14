@@ -33,14 +33,12 @@ export const authOptions = {
     }),
     GithubProvider({
       httpOptions: {
-        timeout: 30000 // 等待响应时间
+        timeout: 60000 // 等待响应时间 ms
       },
       id: 'github',
       name: 'GitHub',
       clientId: process.env.GITHUB_ID,
       clientSecret: process.env.GITHUB_SECRET
-      // authorization: {},
-      // userinfo: { request: () => {} }
     })
   ],
   // callbacks: {

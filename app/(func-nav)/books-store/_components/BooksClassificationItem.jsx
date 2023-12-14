@@ -3,7 +3,7 @@ import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/ico
 import { ConfigProvider, Menu } from 'antd'
 import { useState } from 'react'
 import { useRecoilState } from 'recoil'
-import { bookTypeState } from '../stores'
+import { bookTypeState } from '../../stores'
 
 // menu keys of first level
 const rootSubmenuKeys = ['sub1', 'sub2', 'sub3']

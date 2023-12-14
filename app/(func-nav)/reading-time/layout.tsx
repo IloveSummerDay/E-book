@@ -1,5 +1,5 @@
 export const metadata = {
-  title: 'e-book home',
+  title: 'E-Book Reading',
   description: '尽情使用E-Book吧'
 }
 

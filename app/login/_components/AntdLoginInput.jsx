@@ -28,12 +28,17 @@ function AntdLoginInput() {
     })
   }
   // 使用 GitHub 进行授权登录
-  // const handleGitHubAuth = () => {
-  //   console.log('github')
-  //   signIn('github', {
-  //     callbackUrl: '/home'
-  //   })
-  // }
+  const handleGitHubAuth = () => {
+    console.log('github')
+    setLoginIng(true)
+    signIn('github', {
+      redirect: true,
+      callbackUrl: '/home'
+    }).then(res => {
+      console.log(res)
+      setLoginIng(false)
+    })
+  }
 
   const handleLoginErr = res => {
     console.log(res)
@@ -43,7 +48,6 @@ function AntdLoginInput() {
     alert('注册功能目前无法使用')
   }
 
-  // retuen
   return (
     <>
       <Spin

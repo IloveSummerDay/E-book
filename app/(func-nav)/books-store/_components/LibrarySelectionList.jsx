@@ -1,7 +1,7 @@
 'use client'
 import { useEffect } from 'react'
 import { useRecoilState, useRecoilValue } from 'recoil'
-import { bookTypeState, booksStoreListState } from '../stores'
+import { bookTypeState, booksStoreListState } from '../../stores'
 const LibrarySelectionList = ({}) => {
   //
   const [booksStoreList, setBbooksStoreList] = useRecoilState(booksStoreListState)
