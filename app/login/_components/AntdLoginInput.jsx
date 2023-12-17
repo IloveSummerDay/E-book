@@ -30,13 +30,9 @@ function AntdLoginInput() {
   // 使用 GitHub 进行授权登录
   const handleGitHubAuth = () => {
     console.log('github')
-    setLoginIng(true)
     signIn('github', {
       redirect: true,
-      callbackUrl: '/home'
-    }).then(res => {
-      console.log(res)
-      setLoginIng(false)
+      callbackUrl: '/reading-time'
     })
   }
 

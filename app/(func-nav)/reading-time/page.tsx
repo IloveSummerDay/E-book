@@ -1,14 +1,13 @@
+import dynamic from 'next/dynamic'
 import TopNav from '../../_components_global/TopNav'
-import ReadChoices from './_components/ReadChoices'
-import Reader from './_components/reader/Reader'
 function reader() {
+  const Reader = dynamic(() => import('./_components/reader/Reader'), {
+    ssr: false
+  })
   return (
     <>
       <TopNav navIndex={1} />
       <div className=" h-[90%] flex">
-        <div className=" w-[15%] h-full">
-          <ReadChoices />
-        </div>
         <Reader />
       </div>
     </>
