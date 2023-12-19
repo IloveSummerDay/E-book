@@ -10,11 +10,11 @@ function AntdLoginInput() {
   //
   // 使用 Username 和 Password 进行登录
   const handleNormalSubmit = async formData => {
-    console.log(formData)
+    console.log(formData) // { Username, Password }
     setLoginIng(true)
     signIn('credentials', {
       ...formData,
-      redirect: false
+      redirect: false // 关闭重定向
     }).then(res => {
       console.log(res)
       setTimeout(() => {
@@ -46,6 +46,7 @@ function AntdLoginInput() {
 
   return (
     <>
+      {/* Spin Loading */}
       <Spin
         spinning={logining}
         fullscreen

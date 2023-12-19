@@ -55,6 +55,7 @@ function TopNav({ navIndex }) {
             )
           })}
         </div>
+
         <div className=" w-[20%] h-full absolute right-[0] flex items-center justify-evenly">
           <a className=" w-[50px] h-[50px] rounded-[25px] cursor-pointer overflow-hidden block">
             <Popover

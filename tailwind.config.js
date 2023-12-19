@@ -12,7 +12,7 @@ module.exports = {
       mainHoverColor: '#6AA1D2',
       yellow: '#FFD700',
       orange: '#FFA500',
-      purple: '#8A2BE2',
+      purple: '#800080',
       green: '#2E8B57',
       black: '#000',
       white: '#fff',
