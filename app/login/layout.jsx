@@ -12,7 +12,6 @@ export default function LoginPageLayout({ children, params }) {
   const list = ['账号', '密码']
   return (
     <>
-      <div className="">Login Layout</div>
       <div className="h-full bg-orange   flex items-center flex-col justify-evenly">{children}</div>
     </>
   )

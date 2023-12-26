@@ -101,26 +101,25 @@ function Reader() {
         // marker.style.color = '#000'
         // marker.style.cursor = 'pointer'
         // marker.style.fontWeight = 'bold'
-
         // // 将选中范围用标记包裹起来
         // chooseRange.surroundContents(marker)
 
-        // // highlight
-        // rendition.annotations.highlight(
-        //   cfiRange,
-        //   { test: '测试' }, // 第二个参数可以是个对象比如 {id: id}会添加在dom的自定义属性 data-id="id"
-        //   function (e) {
-        //     // 点击高亮区域时回调 || 在这可以拿到第二个参数的值
-        //     // e.target.dataset // 第二个参数 所添加自定义属性的值 原生附带一个epubcfi
-        //     console.log('【点击了高亮选中内容】', e)
-        //   },
-        //   '', // className: CSS class to assign to annotation
-        //   {
-        //     color: 'white',
-        //     fill: 'red', // // 设置样式，fill更改高亮颜色
-        //     cursor: 'pointer'
-        //   }
-        // )
+        // highlight
+        rendition.annotations.highlight(
+          cfiRange,
+          { test: '测试' }, // 第二个参数可以是个对象比如 {id: id}会添加在dom的自定义属性 data-id="id"
+          function (e) {
+            // 点击高亮区域时回调 || 在这可以拿到第二个参数的值
+            // e.target.dataset // 第二个参数 所添加自定义属性的值 原生附带一个epubcfi
+            console.log('【点击了高亮选中内容】', e)
+          },
+          '', // className: CSS class to assign to annotation
+          {
+            color: 'white',
+            fill: 'green', // // 设置样式，fill更改高亮颜色
+            cursor: 'pointer'
+          }
+        )
         // // underline
         // rendition.annotations.underline(cfiRange, {}, function () {}, 'className', {
         //   'background-color': 'rgba(255, 255, 0, 0.5)'
