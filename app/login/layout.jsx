@@ -9,7 +9,7 @@ export const metadata = {
  * @param {Object} params
  */
 export default function LoginPageLayout({ children, params }) {
-  const list = ['账号', '密码']
+  const list = ['Account', 'Password']
   return (
     <>
       <div className="h-full bg-mainHoverColor flex items-center flex-col justify-evenly">{children}</div>

@@ -9,14 +9,14 @@ import Button from './Button'
 import UploadBookModal from './UploadModal'
 
 const navs = ['首页', '阅读', '书库']
-const navsRouter = ['home', 'reading-time', 'books-store']
+const navsRouter = ['home', 'read', 'bookstore']
 let avatarTempPath
 
 function TopNav({ navIndex }) {
   const { data: session, status } = useSession()
   const router = useRouter()
   const avatarUrl = useRef(session.user.image ? session.user.image : '/none.png')
-  const [openUpoladBook, setOpenUpoladBook] = useState(false)
+  const [uploadingBook, setUploadingBook] = useState(false)
 
   //
   useEffect(() => {
@@ -95,12 +95,12 @@ function TopNav({ navIndex }) {
             size="large"
             content="上传图书"
             onClick={() => {
-              setOpenUpoladBook(!openUpoladBook)
+              setUploadingBook(!uploadingBook)
             }}
           />
         </div>
       </div>
-      <UploadBookModal open={openUpoladBook} />
+      <UploadBookModal open={uploadingBook} />
     </>
   )
 }

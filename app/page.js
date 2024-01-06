@@ -7,7 +7,7 @@ export default function Home() {
 
   return (
     <div className="w-full bg-mainHoverColor h-full flex flex-col justify-evenly items-center text-white">
-      <div className="text-7xl">Wellcome E-Book</div>
+      <div className="text-7xl">Hello there</div>
       <Button
         type="primary"
         size="large"
@@ -16,7 +16,7 @@ export default function Home() {
         onClick={v => {
           router.push('/login')
         }}
-        content="进入体验"
+        content="Login"
       ></Button>
     </div>
   )

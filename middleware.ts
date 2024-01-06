@@ -5,8 +5,8 @@ export async function middleware(request: NextRequest) {
   // // ->Home - middleware
   // if (
   //   request.nextUrl.pathname.startsWith('/home') ||
-  //   request.nextUrl.pathname.startsWith('/books-store') ||
-  //   request.nextUrl.pathname.startsWith('/reading-time') ||
+  //   request.nextUrl.pathname.startsWith('/bookstore') ||
+  //   request.nextUrl.pathname.startsWith('/read') ||
   //   request.nextUrl.pathname.startsWith('/user-center')
   // ) {
   //   if (request.cookies.get('admin-token') && request.cookies.get('user-avater')) {

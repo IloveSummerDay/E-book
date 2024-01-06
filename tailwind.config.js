@@ -9,7 +9,7 @@ module.exports = {
     extend: {},
     colors: {
       mainColor: '#105A9D', // bg-mainColor
-      mainHoverColor: '#6AA1D2',
+      mainHoverColor: '#220b33',
       yellow: '#FFD700',
       orange: '#FFA500',
       purple: '#8A2BE2',
